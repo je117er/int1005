@@ -1,43 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
 
-int factorial(int n) {
-    int factorial = 1;
-
-    if (n == 0)
-        return 1;
-    else {
-        for (int i = 1; i <=n; i++) {
-            factorial = factorial*i;
-        }
-    return factorial;
+double cosine(double x, int n) {
+    double sum = 1;
+    for (int i = n; i > 0; --i) {
+        sum = 1 - (x*x*sum)/((2*i - 1)*(2*i));
     }
-}
-
-int sumOfSquares(double x, int n) {
-    double  sum = 1;
-
-    if (x == 0)
-        return sum;
-    else {
-        for (int i = 1; i <=n; i++) {
-            sum = sum + pow(x, i)/factorial(i);
-        }
-        return sum;
-    }
+    //printf("Cos of %lf is %f", x, sum);
 }
 
 int main() {
-    double x, sum = 1;
+    int n = 0;
+    double cosine1, x;
     double error = 0.00001;
     printf("Enter x: ");
     scanf("%lf", &x);
-
-    for (int i = 1; abs(exp(x) - sum) >= error; i++) {
-        sum = sumOfSquares(x, i);
+    cosine1 = cosine(x, n);
+    while (fabs(cos(x) - cosine1) > error) {
+        ++n;
+        cosine1 = cosine(x, n);
     }
-    return sum;
+    printf("Cos of %lf is %lf", x, cosine1);
 }
-            
-
+         
