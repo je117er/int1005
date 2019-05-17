@@ -8,6 +8,7 @@ int isPrime(int num) {
     else {
         // Suppose if we didn't add 1 to maxFactor here, using n = 9, then the loop would terminate immediately and gives 9
         for (int i = 3; i*i < num + 1; i+=2) {
+            // Not much of a difference, just squared sides of the equation
             if (num % i == 0)
                 return 0;
         }
