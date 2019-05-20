@@ -18,7 +18,7 @@ int main(void)
         c[i] = a[i];
         printf("%d ", c[i]);
     }
-    for (int i = n; i < n + m - 1; i++) {
+    for (int i = n; i < n + m; i++) {
         c[i] = b[i - n];
         printf("%d ", c[i]);
     }
